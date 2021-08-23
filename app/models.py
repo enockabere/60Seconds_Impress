@@ -33,7 +33,7 @@ class PostLike(db.Model):
     users_id = db.Column(db.Integer,db.ForeignKey('users.id') )
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitchs.id') )
     comment = db.Column(db.String(), unique=True, nullable=False)
-    created_at = db.Column(db.DateTime(), default=datetime.utcnow(), nullable=False)
+    created = db.Column(db.DateTime(), default=datetime.utcnow(), nullable=False)
 
     
     
