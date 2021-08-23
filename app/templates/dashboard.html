@@ -94,7 +94,7 @@
                 <div class="row" id="myrow">
                     {% for user in user %}
                     {% for pitch in user.pitch %}
-                    {% if pitch.category == 'Love' %}
+                    <!-- {% if pitch.category == 'Love' %}
                     <div class="col-md-12" id="love"> 
                         <div class="jumbotron" id="jumbo3">
                             <div class="jtop">
@@ -139,8 +139,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {% elif pitch.category == 'Meme' %}
+                    </div> -->
+                    <!-- {% elif pitch.category == 'Meme' %}
                     <div class="col-md-12" id="meme"> 
                         <div class="jumbotron" id="jumbo3">
                             <div class="jtop">
@@ -185,8 +185,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {% elif pitch.category == 'Positive' %}
+                    </div> -->
+                    {% if pitch.category == 'Positive' %}
                     <div class="col-md-12" id="positive"> 
                         <div class="collapse" id="collapseExample">
                             <div class="jtop">
@@ -232,7 +232,7 @@
                             </div>
                         </div>
                     </div>
-                    {% else %}
+                    <!-- {% else %}
                     <div class="col-md-12" id="fam"> 
                         <div class="collapse" id="collapseExample">
                             <div class="jtop">
@@ -277,7 +277,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     {% endif %}
                     {% endfor %}
                     {% endfor %}
