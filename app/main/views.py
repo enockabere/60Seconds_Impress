@@ -37,7 +37,8 @@ def dashboard():
         db.session.commit()
         return redirect(url_for('main.dashboard'))
     pitch = Pitch.query.all()
-    return render_template('dashboard.html',likes=likes, form=form,pitch=pitch, name=current_user.username)
+    user = User.query.all()
+    return render_template('dashboard.html',likes=likes, user=user, form=form,pitch=pitch, name=current_user.username)
 @main.route('/login', methods=['GET', 'POST'])
 def login():
     '''
@@ -100,3 +101,12 @@ def delete_pitch():
             db.session.delete(pitch)
             db.session.commit()
     return jsonify({})
+
+@main.route('/comment/<pitch_id>', methods=['GET','POST'])
+def comment(pitch_id):
+    form = CommentForm()
+    if form.validate_on_submit():
+        new_comment = PostLike(comment=form.comment.data, pitch_id=pitch_id,users_id=current_user.id)
+        db.session.add(new_comment)
+        db.session.commit()
+        return redirect(url_for('main.dashboard'))

@@ -13,15 +13,7 @@ class User(UserMixin,db.Model):
     pitch = db.relationship('Pitch')
     liked = db.relationship('PostLike', foreign_keys='PostLike.users_id', backref='users',lazy='dynamic')
     
-    def like_pitch(self,post):
-        if not self.has_liked_post(post):
-            like = PostLike(users_id=self.id,post_id=post.id)
-            db.session.add(like)
-    def unlike_post(self,post):
-        if self.has_liked_post(post):
-            PostLike.query.filter_by(users_id=self.id,post_id=post.id).delete()
-    def has_liked_post(self,post):
-        return PostLike.query.filter_by(PostLike.users_id==self.id,PostLike.post_id==post.id).count()>0
+   
     def __repr__(self):
         return f'User{self.username}'
 class Pitch (db.Model):

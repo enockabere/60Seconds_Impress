@@ -92,12 +92,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    {% for pitch in pitch %}
+                    {% for user in user %}
+                    {% for pitch in user.pitch %}
+                    
                     <div class="col-md-12" id="love">
+                        {% if pitch.category == 'Love' %}
                         <div class="jumbotron" id="jumbo3">
                             <div class="jtop">
                                 <img src="{{ url_for('static', filename='img/1.png') }}" alt="bash" srcset="">
-                                <p>{{name}}</p>
+                                <p>{{user.username}}</p>
                             </div>
                             <div class="jtop2">
                                 <p>
@@ -126,7 +129,7 @@
                                         </p>
                                     </div>
                                     {% endfor %}
-                                    <form action="/dashboard" method="post">
+                                    <form action="/comment/{{pitch.id}}" method="post">
                                         {{ form.hidden_tag() }}
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
@@ -137,7 +140,9 @@
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
                     </div>
+                    {% endfor %}
                     {% endfor %}
                 </div>
             </div>
