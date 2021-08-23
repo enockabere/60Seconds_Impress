@@ -38,7 +38,7 @@ def dashboard():
         return redirect(url_for('main.dashboard'))
     pitch = Pitch.query.all()
     user = User.query.all()
-    return render_template('dashboard.html',likes=likes, user=user, form=form,pitch=pitch, name=current_user.username)
+    return render_template('dashboard.html',likes=likes, user=user, form=form,pitch=pitch)
 @main.route('/login', methods=['GET', 'POST'])
 def login():
     '''
