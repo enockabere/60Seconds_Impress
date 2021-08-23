@@ -214,8 +214,8 @@
                                     {% for likes in likes %}
                                     <div id="chat">
                                         <p><span id="names"><i class="far fa-user-circle"></i> {{name}}</span></p>
-                                        <p>{{likes.comment}}</br>
-                                            <span class="chat-text">{{likes.created_at.strftime('%B %d, %Y %I:%M')}} <i
+                                        <p>{{post_like.comment}}</br>
+                                            <span class="chat-text">{{post_like.created_at.strftime('%B %d, %Y %I:%M')}} <i
                                                     class="fas fa-check-circle"></i></p>
                                         </p>
                                     </div>
