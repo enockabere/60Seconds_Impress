@@ -94,7 +94,7 @@
                 <div class="row" id="myrow">
                     {% for user in user %}
                     {% for pitch in user.pitch %}
-                    <!-- {% if pitch.category == 'Love' %}
+                    {% if pitch.category == 'Love' %}
                     <div class="col-md-12" id="love"> 
                         <div class="jumbotron" id="jumbo3">
                             <div class="jtop">
@@ -139,8 +139,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-                    <!-- {% elif pitch.category == 'Meme' %}
+                    </div>
+                    {% elif pitch.category == 'Meme' %}
                     <div class="col-md-12" id="meme"> 
                         <div class="jumbotron" id="jumbo3">
                             <div class="jtop">
@@ -185,8 +185,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-                    {% if pitch.category == 'Positive' %}
+                    </div>
+                    {% elif pitch.category == 'Positive' %}
                     <div class="col-md-12" id="positive"> 
                         <div class="collapse" id="collapseExample">
                             <div class="jtop">
@@ -214,8 +214,8 @@
                                     {% for likes in likes %}
                                     <div id="chat">
                                         <p><span id="names"><i class="far fa-user-circle"></i> {{name}}</span></p>
-                                        <p>{{post_like.comment}}</br>
-                                            <span class="chat-text">{{post_like.created_at.strftime('%B %d, %Y %I:%M')}} <i
+                                        <p>{{likes.comment}}</br>
+                                            <span class="chat-text">{{likes.created_at.strftime('%B %d, %Y %I:%M')}} <i
                                                     class="fas fa-check-circle"></i></p>
                                         </p>
                                     </div>
@@ -232,7 +232,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- {% else %}
+                    {% else %}
                     <div class="col-md-12" id="fam"> 
                         <div class="collapse" id="collapseExample">
                             <div class="jtop">
@@ -277,7 +277,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     {% endif %}
                     {% endfor %}
                     {% endfor %}
