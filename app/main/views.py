@@ -73,7 +73,7 @@ def profile():
     
     # fetch data
     pitch = Pitch.query.all()
-
+    user = User.query.all()
     form = PitchForm()
 
     if form.validate_on_submit():

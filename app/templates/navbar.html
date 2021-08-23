@@ -1,19 +1,20 @@
 {% block navbar %}
 <nav class="navbar navbar-expand-lg navbar-light">
   {% if name %}
+  <div class="container-fluid">
+    <a class="navbar-brand" id="mybrand" href="#">
+      Hello <span class="br"> {{name}}</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+      <a id="gits" class="btn btn-primary" href="/logout" role="button">Logout <i class="fa fa-sign-out"
+          aria-hidden="true"></i></i></a>
+    </div>
+    {% else %}
     <div class="container-fluid">
-      <a class="navbar-brand" id="mybrand" href="#">
-        Hello <span class="br"> {{name}}</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
-        <a id="gits" class="btn btn-primary" href="/logout" role="button">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></i></a>
-      </div>
-      {% else %}
-      <div class="container-fluid">
       <a class="navbar-brand" id="mybrand" href="#">
         60Seconds<span class="br"> Impress</span>
       </a>
@@ -27,5 +28,5 @@
       </div>
       {% endif %}
     </div>
-  </nav>
+</nav>
 {% endblock %}

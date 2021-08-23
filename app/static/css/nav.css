@@ -100,10 +100,12 @@
     color: rgb(247, 243, 243);
     font-size: 12px;
 }
-#names{
+
+#names {
     font-style: bold;
     color: #fff;
 }
-.alert-link{
+
+.alert-link {
     color: blue;
 }
