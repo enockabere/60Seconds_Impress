@@ -93,13 +93,13 @@
                 </div>
                 <div class="row" id="myrow">
                     {% for user in user %}
-                    {% for pitch in user.pitch %}
-                    {% if pitch.category == 'Love' %}
                     <div class="col-md-12" id="love"> 
+                        {% for pitch in user.pitch %}
                         <div class="jumbotron" id="jumbo3">
                             <div class="jtop">
                                 <img src="{{ url_for('static', filename='img/1.png') }}" alt="bash" srcset="">
                                 <p>{{user.username}}</p>
+                                <p class="j5">Post Category: <span class="br">{{pitch.category}}</span></p>
                             </div>
                             <div class="jtop2">
                                 <p>
@@ -121,9 +121,9 @@
                                 <div class="collapse" id="collapseExample">
                                     {% for likes in likes %}
                                     <div id="chat">
-                                        <p><span id="names"><i class="far fa-user-circle"></i> {{name}}</span></p>
+                                        <p><span id="names"><i class="far fa-user-circle"> {{user.username}}</i> </span></p>
                                         <p>{{likes.comment}}</br>
-                                            <span class="chat-text">{{likes.created_at.strftime('%B %d, %Y %I:%M')}} <i
+                                            <span class="chat-text">{{likes.created.strftime('%B %d, %Y %I:%M')}} <i
                                                     class="fas fa-check-circle"></i></p>
                                         </p>
                                     </div>
@@ -139,147 +139,8 @@
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% elif pitch.category == 'Meme' %}
-                    <div class="col-md-12" id="meme"> 
-                        <div class="jumbotron" id="jumbo3">
-                            <div class="jtop">
-                                <img src="{{ url_for('static', filename='img/1.png') }}" alt="bash" srcset="">
-                                <p>{{user.username}}</p>
-                            </div>
-                            <div class="jtop2">
-                                <p>
-                                    {{pitch.message}}
-                                </p>
-                            </div>
-                            <div class="jtop3">
-                                <img src="{{ url_for('static', filename='img/sales-pitch.png') }}" class="img-fluid" alt="bash"
-                                    srcset="">
-                            </div>
-                            <div class="jtop4">
-                                <p class="j1"><a class="like"><i class="far fa-heart"></i> <input class="qty1"
-                                            name="qty1" readonly="readonly" type="text" value="0" /> </a></p>
-                                <p class="j2"><a class="dislike"><i class="far fa-thumbs-down"></i> <input class="qty2"
-                                            name="qty2" readonly="readonly" type="text" value="0" /></a></p>
-                                <p class="j3"><i data-bs-toggle="collapse" href="#collapseExample"class="far fa-comment-alt"></i></p>
-                                <p class="j3"><i id="comm" class="fas fa-clock"></i> <small
-                                        class="br">{{pitch.created_at.strftime('%B %d, %Y %I:%M')}}</small></p>
-                                <div class="collapse" id="collapseExample">
-                                    {% for likes in likes %}
-                                    <div id="chat">
-                                        <p><span id="names"><i class="far fa-user-circle"></i> {{name}}</span></p>
-                                        <p>{{likes.comments}}</br>
-                                            <span class="chat-text">{{likes.created_at.strftime('%B %d, %Y %I:%M')}} <i
-                                                    class="fas fa-check-circle"></i></p>
-                                        </p>
-                                    </div>
-                                    {% endfor %}
-                                    <form action="/comment/{{pitch.id}}" method="post">
-                                        {{ form.hidden_tag() }}
-                                        <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                                            {{form.comment(class="form-control")}}
-                                        </div>
-                                        <button type="submit" id="send" class="btn btn-primary mb-3">Send</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% elif pitch.category == 'Positive' %}
-                    <div class="col-md-12" id="positive"> 
-                        <div class="collapse" id="collapseExample">
-                            <div class="jtop">
-                                <img src="{{ url_for('static', filename='img/1.png') }}" alt="bash" srcset="">
-                                <p>{{user.username}}</p>
-                            </div>
-                            <div class="jtop2">
-                                <p>
-                                    {{pitch.message}}
-                                </p>
-                            </div>
-                            <div class="jtop3">
-                                <img src="{{ url_for('static', filename='img/sales-pitch.png') }}" class="img-fluid" alt="bash"
-                                    srcset="">
-                            </div>
-                            <div class="jtop4">
-                                <p class="j1"><a class="like"><i class="far fa-heart"></i> <input class="qty1"
-                                            name="qty1" readonly="readonly" type="text" value="0" /> </a></p>
-                                <p class="j2"><a class="dislike"><i class="far fa-thumbs-down"></i> <input class="qty2"
-                                            name="qty2" readonly="readonly" type="text" value="0" /></a></p>
-                                <p class="j3"><i data-bs-toggle="collapse" href="#collapseExample" class="far fa-comment-alt"></i></p>
-                                <p class="j3"><i id="comm" class="fas fa-clock"></i> <small
-                                        class="br">{{pitch.created_at.strftime('%B %d, %Y %I:%M')}}</small></p>
-                                <div class="jumbotron" id="myform">
-                                    {% for likes in likes %}
-                                    <div id="chat">
-                                        <p><span id="names"><i class="far fa-user-circle"></i> {{name}}</span></p>
-                                        <p>{{likes.comment}}</br>
-                                            <span class="chat-text">{{likes.created_at.strftime('%B %d, %Y %I:%M')}} <i
-                                                    class="fas fa-check-circle"></i></p>
-                                        </p>
-                                    </div>
-                                    {% endfor %}
-                                    <form action="/comment/{{pitch.id}}" method="post">
-                                        {{ form.hidden_tag() }}
-                                        <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                                            {{form.comment(class="form-control")}}
-                                        </div>
-                                        <button type="submit" id="send" class="btn btn-primary mb-3">Send</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% else %}
-                    <div class="col-md-12" id="fam"> 
-                        <div class="collapse" id="collapseExample">
-                            <div class="jtop">
-                                <img src="{{ url_for('static', filename='img/1.png') }}" alt="bash" srcset="">
-                                <p>{{user.username}}</p>
-                            </div>
-                            <div class="jtop2">
-                                <p>
-                                    {{pitch.message}}
-                                </p>
-                            </div>
-                            <div class="jtop3">
-                                <img src="{{ url_for('static', filename='img/sales-pitch.png') }}" class="img-fluid" alt="bash"
-                                    srcset="">
-                            </div>
-                            <div class="jtop4">
-                                <p class="j1"><a class="like"><i class="far fa-heart"></i> <input class="qty1"
-                                            name="qty1" readonly="readonly" type="text" value="0" /> </a></p>
-                                <p class="j2"><a class="dislike"><i class="far fa-thumbs-down"></i> <input class="qty2"
-                                            name="qty2" readonly="readonly" type="text" value="0" /></a></p>
-                                <p class="j3"><i data-bs-toggle="collapse" href="#collapseExample" class="far fa-comment-alt"></i></p>
-                                <p class="j3"><i id="comm" class="fas fa-clock"></i> <small
-                                        class="br">{{pitch.created_at.strftime('%B %d, %Y %I:%M')}}</small></p>
-                                <div class="jumbotron" id="myform">
-                                    {% for likes in likes %}
-                                    <div id="chat">
-                                        <p><span id="names"><i class="far fa-user-circle"></i> {{name}}</span></p>
-                                        <p>{{likes.comment}}</br>
-                                            <span class="chat-text">{{likes.created_at.strftime('%B %d, %Y %I:%M')}} <i
-                                                    class="fas fa-check-circle"></i></p>
-                                        </p>
-                                    </div>
-                                    {% endfor %}
-                                    <form action="/comment/{{pitch.id}}" method="post">
-                                        {{ form.hidden_tag() }}
-                                        <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                                            {{form.comment(class="form-control")}}
-                                        </div>
-                                        <button type="submit" id="send" class="btn btn-primary mb-3">Send</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
                     {% endfor %}
                 </div>
             </div>

@@ -235,7 +235,11 @@ a {
     float: right;
     font-family: 'Roboto Condensed', sans-serif;
 }
-
+.j5{
+    float:right;
+    color: #525466;
+    font-size: 15px;
+}
 .j1:hover {
     color: #fd5d38;
 }

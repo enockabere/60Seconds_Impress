@@ -104,6 +104,7 @@ def delete_pitch():
 
 @main.route('/comment/<pitch_id>', methods=['GET','POST'])
 def comment(pitch_id):
+    
     form = CommentForm()
     if form.validate_on_submit():
         new_comment = PostLike(comment=form.comment.data, pitch_id=pitch_id,users_id=current_user.id)

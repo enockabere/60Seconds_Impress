@@ -20,7 +20,7 @@ class Pitch (db.Model):
     __tablename__= "pitchs"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement = True)
-    message = db.Column(db.String(), unique=True,nullable=False)
+    message = db.Column(db.String(), unique=False,nullable=False)
     category = db.Column(db.String(20),nullable=False)
     created_at = db.Column(db.DateTime(), default=datetime.utcnow(), nullable=False)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id') )
@@ -32,7 +32,7 @@ class PostLike(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     users_id = db.Column(db.Integer,db.ForeignKey('users.id') )
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitchs.id') )
-    comment = db.Column(db.String(), unique=True, nullable=False)
+    comment = db.Column(db.String(), unique=False, nullable=False)
     created = db.Column(db.DateTime(), default=datetime.utcnow(), nullable=False)
 
     
