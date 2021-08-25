@@ -6,18 +6,18 @@ Owing to the fact that one has only 60 seconds to make an impression and consequ
 ### Landing Page
 On the landing page, there is a brief definition of what the application is about, buttons to redirect page visitor to the sign up and login pages.
 #### Landing Page Display
-![landing](app/static/images/readme/1.png)
+![landing](app/static/img/readme/1.png)
 
 ### Sign-Up Page
 To access pitches or create pitches, one must have an account. Page visitors are required to create their accounts from here using an e-mail address,username and password.
 #### Sign-Up Page Display
 
-![sign-up](app/static/images/readme/2.png)
+![sign-up](app/static/img/readme/2.png)
 
 ### Login Page
 To gain access to the system users have to identify and authenticate themselves using a username and password saved in a database through registration
 #### Login Page Display
-![Login](app/static/images/readme/3.png)
+![Login](app/static/img/readme/3.png)
 ### Dashboard
 Page visitors are directed to the dashboard after signing in, at this point they are able to access stored and organized pitches from different users.
 
@@ -28,7 +28,7 @@ Page visitors are directed to the dashboard after signing in, at this point they
 - Page visitors can up-vote a pitch by clicking the love icon on the pitch and thumbs down icon to down-vote
 - Page are able to comment and view comments by clicking on the message icon.
 #### Dashboard Display
-![dashboard](app/static/images/readme/4.png)
+![dashboard](app/static/img/readme/4.png)
 ### Profile
 Here a user will find everything he/she needs to create, view and delete a pitch.
 #### Behavior Driven Development
@@ -36,7 +36,7 @@ Here a user will find everything he/she needs to create, view and delete a pitch
 - Once the pitch is submit, all your pitches will be available on your profile to view and delete.
 - There a button to log out the user and view all posts on the dashboard.
 #### Profile Display
-![dashboard](app/static/images/readme/5.png)
+![dashboard](app/static/img/readme/5.png)
 ### 404 Error Page
 
 #### Description
@@ -47,7 +47,7 @@ This is an error page indicating that the browser was able to communicate with s
 
 #### 404 Error Page Display
 
-![404](app/static/images/readme/6.png)
+![404](app/static/img/readme/6.png)
 
 ### Live link
 Visit the application on https://gaiety-pitches.herokuapp.com/
